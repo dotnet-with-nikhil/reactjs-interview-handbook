@@ -100,28 +100,39 @@ React re-renders the component whenever a new array reference is passed to `setU
 
 ---
 
-### 3. What are real-world use cases of useMemo and useCallback?
+### 3. What are the real-world use cases of useMemo and useCallback?
 
 #### useMemo
 
-Used to memoize expensive calculations.
+**Definition:**
+
+`useMemo` is a React Hook that remembers (memoizes) the result of a calculation and only recalculates it when its dependencies change.
+
+**Simple Example:**
 
 ```jsx
-const filteredUsers = useMemo(() => {
-  return users.filter(user => user.isActive);
-}, [users]);
+const squaredNumber = useMemo(() => {
+  return number * number;
+}, [number]);
 ```
 
-Common Use Cases:
+If `number` does not change, React reuses the previous value instead of recalculating it.
 
-- Large table filtering
-- Dashboard calculations
-- Data transformations
-- Performance optimization
+**Real Use Case:**
+
+- Filtering large lists
+- Sorting data
+- Expensive calculations
+
+---
 
 #### useCallback
 
-Used to memoize functions.
+**Definition:**
+
+`useCallback` is a React Hook that remembers (memoizes) a function and prevents it from being recreated on every render.
+
+**Simple Example:**
 
 ```jsx
 const handleClick = useCallback(() => {
@@ -129,20 +140,29 @@ const handleClick = useCallback(() => {
 }, []);
 ```
 
-Common Use Cases:
+React will reuse the same function reference on every render.
 
-- Passing callbacks to child components
-- Preventing unnecessary re-renders
-- Working with React.memo
+**Real Use Case:**
+
+- Passing functions to child components
+- Working with `React.memo`
+- Avoiding unnecessary re-renders
+
+---
 
 #### Difference
 
 | useMemo | useCallback |
-|----------|----------|
-| Memoizes value | Memoizes function |
-| Returns value | Returns function |
+|----------|------------|
+| Caches a value | Caches a function |
+| Returns a value | Returns a function |
 
----
+**Easy way to remember:**
+
+```text
+useMemo → Remember a VALUE
+useCallback → Remember a FUNCTION
+```
 
 ### 4. Create a Counter Component with Increment and Decrement Buttons
 
