@@ -18,7 +18,7 @@ A curated collection of **real React interview experiences**, questions, coding 
 
 **Role:** React Developer
 
-**Experience Level:** 2–5 Years
+**Experience Level:** 3-5+ Years
 
 **Interview Round:** Technical Round
 
