@@ -33,13 +33,13 @@ A structured collection of **100 React.js Interview Questions & Answers** coveri
 
 | Part | Topics | Link |
 |------|--------|------|
-| Part 01 | Q36 - Q40 | [📖 View](./Intermediate/Part-01) |
-| Part 02 | Q41 - Q45 | [📖 View](./Intermediate/Part-02) |
-| Part 03 | Q46 - Q50 | [📖 View](./Intermediate/Part-03) |
-| Part 04 | Q51 - Q55 | [📖 View](./Intermediate/Part-04) |
-| Part 05 | Q56 - Q60 | [📖 View](./Intermediate/Part-05) |
-| Part 06 | Q61 - Q65 | [📖 View](./Intermediate/Part-06) |
-| Part 07 | Q66 - Q70 | [📖 View](./Intermediate/Part-07) |
+| Part 01 | Q36 - Q40 | [📖 View](./General-Questions/Intermediate/Part-1) |
+| Part 02 | Q41 - Q45 | [📖 View](./General-Questions/Intermediate/Part-2) |
+| Part 03 | Q46 - Q50 | [📖 View](./General-Questions/Intermediate/Part-3) |
+| Part 04 | Q51 - Q55 | [📖 View](./General-Questions/Intermediate/Part-4) |
+| Part 05 | Q56 - Q60 | [📖 View](./General-Questions/Intermediate/Part-5) |
+| Part 06 | Q61 - Q65 | [📖 View](./General-Questions/Intermediate/Part-6) |
+| Part 07 | Q66 - Q70 | [📖 View](./General-Questions/Intermediate/Part-7) |
 
 ---
 
@@ -47,12 +47,12 @@ A structured collection of **100 React.js Interview Questions & Answers** coveri
 
 | Part | Topics | Link |
 |------|--------|------|
-| Part 01 | Q71 - Q75 | [📖 View](./Advanced/Part-01) |
-| Part 02 | Q76 - Q80 | [📖 View](./Advanced/Part-02) |
-| Part 03 | Q81 - Q85 | [📖 View](./Advanced/Part-03) |
-| Part 04 | Q86 - Q90 | [📖 View](./Advanced/Part-04) |
-| Part 05 | Q91 - Q95 | [📖 View](./Advanced/Part-05) |
-| Part 06 | Q96 - Q100 | [📖 View](./Advanced/Part-06) |
+| Part 01 | Q71 - Q75 | [📖 View](./General-Questions/Advanced/Part-1) |
+| Part 02 | Q76 - Q80 | [📖 View](./General-Questions/Advanced/Part-2) |
+| Part 03 | Q81 - Q85 | [📖 View](./General-Questions/Advanced/Part-3) |
+| Part 04 | Q86 - Q90 | [📖 View](./General-Questions/Advanced/Part-4) |
+| Part 05 | Q91 - Q95 | [📖 View](./General-Questions/Advanced/Part-5) |
+| Part 06 | Q96 - Q100 | [📖 View](./General-Questions/Advanced/Part-6) |
 
 ---
 
