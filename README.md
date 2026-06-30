@@ -17,42 +17,42 @@ A structured collection of **100 React.js Interview Questions & Answers** coveri
 
 ## 🟢 Beginner Level (Q1 - Q35)
 
-| Part | Topics | Link |
+| Set | Topics | Link |
 |------|--------|------|
-| Part 01 | Q1 - Q5 | [📖 View](./General-Questions/Beginner/Part-1) |
-| Part 02 | Q6 - Q10 | [📖 View](./General-Questions/Beginner/Part-2) |
-| Part 03 | Q11 - Q15 | [📖 View](./General-Questions/Beginner/Part-3) |
-| Part 04 | Q16 - Q20 | [📖 View](./General-Questions/Beginner/Part-4) |
-| Part 05 | Q21 - Q25 | [📖 View](./General-Questions/Beginner/Part-5) |
-| Part 06 | Q26 - Q30 | [📖 View](./General-Questions/Beginner/Part-6) |
-| Part 07 | Q31 - Q35 | [📖 View](./General-Questions/Beginner/Part-7) |
+| Set 01 | Q1 - Q5 | [📖 View](./General-Questions/Beginner/Set-01) |
+| Set 02 | Q6 - Q10 | [📖 View](./General-Questions/Beginner/Set-02) |
+| Set 03 | Q11 - Q15 | [📖 View](./General-Questions/Beginner/Set-03) |
+| Set 04 | Q16 - Q20 | [📖 View](./General-Questions/Beginner/Set-04) |
+| Set 05 | Q21 - Q25 | [📖 View](./General-Questions/Beginner/Set-05) |
+| Set 06 | Q26 - Q30 | [📖 View](./General-Questions/Beginner/Set-06) |
+| Set 07 | Q31 - Q35 | [📖 View](./General-Questions/Beginner/Set-07) |
 
 ---
 
 ## 🟡 Intermediate Level (Q36 - Q70)
 
-| Part | Topics | Link |
+| Set | Topics | Link |
 |------|--------|------|
-| Part 01 | Q36 - Q40 | [📖 View](./General-Questions/Intermediate/Part-1) |
-| Part 02 | Q41 - Q45 | [📖 View](./General-Questions/Intermediate/Part-2) |
-| Part 03 | Q46 - Q50 | [📖 View](./General-Questions/Intermediate/Part-3) |
-| Part 04 | Q51 - Q55 | [📖 View](./General-Questions/Intermediate/Part-4) |
-| Part 05 | Q56 - Q60 | [📖 View](./General-Questions/Intermediate/Part-5) |
-| Part 06 | Q61 - Q65 | [📖 View](./General-Questions/Intermediate/Part-6) |
-| Part 07 | Q66 - Q70 | [📖 View](./General-Questions/Intermediate/Part-7) |
+| Set 01 | Q36 - Q40 | [📖 View](./General-Questions/Intermediate/Set-01) |
+| Set 02 | Q41 - Q45 | [📖 View](./General-Questions/Intermediate/Set-02) |
+| Set 03 | Q46 - Q50 | [📖 View](./General-Questions/Intermediate/Set-03) |
+| Set 04 | Q51 - Q55 | [📖 View](./General-Questions/Intermediate/Set-04) |
+| Set 05 | Q56 - Q60 | [📖 View](./General-Questions/Intermediate/Set-05) |
+| Set 06 | Q61 - Q65 | [📖 View](./General-Questions/Intermediate/Set-06) |
+| Set 07 | Q66 - Q70 | [📖 View](./General-Questions/Intermediate/Set-07) |
 
 ---
 
 ## 🔴 Advanced Level (Q71 - Q100)
 
-| Part | Topics | Link |
+| Set | Topics | Link |
 |------|--------|------|
-| Part 01 | Q71 - Q75 | [📖 View](./General-Questions/Advanced/Part-1) |
-| Part 02 | Q76 - Q80 | [📖 View](./General-Questions/Advanced/Part-2) |
-| Part 03 | Q81 - Q85 | [📖 View](./General-Questions/Advanced/Part-3) |
-| Part 04 | Q86 - Q90 | [📖 View](./General-Questions/Advanced/Part-4) |
-| Part 05 | Q91 - Q95 | [📖 View](./General-Questions/Advanced/Part-5) |
-| Part 06 | Q96 - Q100 | [📖 View](./General-Questions/Advanced/Part-6) |
+| Set 01 | Q71 - Q75 | [📖 View](./General-Questions/Advanced/Set-01) |
+| Set 02 | Q76 - Q80 | [📖 View](./General-Questions/Advanced/Set-02) |
+| Set 03 | Q81 - Q85 | [📖 View](./General-Questions/Advanced/Set-03) |
+| Set 04 | Q86 - Q90 | [📖 View](./General-Questions/Advanced/Set-04) |
+| Set 05 | Q91 - Q95 | [📖 View](./General-Questions/Advanced/Set-05) |
+| Set 06 | Q96 - Q100 | [📖 View](./General-Questions/Advanced/Set-06) |
 
 ---
 
