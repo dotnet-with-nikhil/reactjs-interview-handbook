@@ -19,13 +19,13 @@ A structured collection of **100 React.js Interview Questions & Answers** coveri
 
 | Part | Topics | Link |
 |------|--------|------|
-| Part 01 | Q1 - Q5 | [📖 View](./Beginner/Part-01) |
-| Part 02 | Q6 - Q10 | [📖 View](./Beginner/Part-02) |
-| Part 03 | Q11 - Q15 | [📖 View](./Beginner/Part-03) |
-| Part 04 | Q16 - Q20 | [📖 View](./Beginner/Part-04) |
-| Part 05 | Q21 - Q25 | [📖 View](./Beginner/Part-05) |
-| Part 06 | Q26 - Q30 | [📖 View](./Beginner/Part-06) |
-| Part 07 | Q31 - Q35 | [📖 View](./Beginner/Part-07) |
+| Part 01 | Q1 - Q5 | [📖 View](./General-Questions/Beginner/Part-01/README) |
+| Part 02 | Q6 - Q10 | [📖 View](./General-Questions/Beginner/Part-02/README) |
+| Part 03 | Q11 - Q15 | [📖 View](./General-Questions/Beginner/Part-03/README) |
+| Part 04 | Q16 - Q20 | [📖 View](./General-Questions/Beginner/Part-04/README) |
+| Part 05 | Q21 - Q25 | [📖 View](./General-Questions/Beginner/Part-05/README) |
+| Part 06 | Q26 - Q30 | [📖 View](./General-Questions/Beginner/Part-06/README) |
+| Part 07 | Q31 - Q35 | [📖 View](./General-Questions/Beginner/Part-07/README) |
 
 ---
 
