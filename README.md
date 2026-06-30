@@ -11,7 +11,7 @@ A structured collection of **100 React.js Interview Questions & Answers** coveri
 
 | Comapnies | Link |
 |-----------|------|
-| PWC       | [📖 View](./Company-Wise-Interview-Questions/PWC-README) |
+| PWC       | [📖 View](./Company-Wise-Interview-Questions/PWC-README.md) |
 
 ---
 
