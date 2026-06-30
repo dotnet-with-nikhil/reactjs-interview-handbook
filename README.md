@@ -1,250 +1,181 @@
-# React Interview Experiences
+# 🚀 React Interview Questions & Answers
 
-A curated collection of **real React interview experiences**, questions, coding challenges, and answers asked by various companies.
-
-⭐ If you find this repository helpful, please consider giving it a star.
+A structured collection of **100 React.js Interview Questions & Answers** covering everything from React fundamentals to advanced concepts like Redux Toolkit, Performance Optimization, Authentication, Testing, and Enterprise Architecture.
 
 ---
 
-## Companies
+# 📚 Repository Structure
 
-| Company | Interview Experience |
-|----------|----------|
-| PwC | [View Questions](#-pwc-react-interview-experience)
+
+## 🟢 Company Wise Experiences
+
+| Comapnies | Link |
+|-----------|------|
+| PWC       | [📖 View](./Company-Wise-Interview-Questions/PWC-README) |
 
 ---
 
-# 📌 PwC React Interview Experience
+## 🟢 Beginner Level (Q1 - Q35)
 
-**Role:** React Developer
+| Part | Topics | Link |
+|------|--------|------|
+| Part 01 | Q1 - Q5 | [📖 View](./Beginner/Part-01) |
+| Part 02 | Q6 - Q10 | [📖 View](./Beginner/Part-02) |
+| Part 03 | Q11 - Q15 | [📖 View](./Beginner/Part-03) |
+| Part 04 | Q16 - Q20 | [📖 View](./Beginner/Part-04) |
+| Part 05 | Q21 - Q25 | [📖 View](./Beginner/Part-05) |
+| Part 06 | Q26 - Q30 | [📖 View](./Beginner/Part-06) |
+| Part 07 | Q31 - Q35 | [📖 View](./Beginner/Part-07) |
 
-**Experience Level:** 3-5+ Years
+---
 
-**Interview Round:** Technical Round
+## 🟡 Intermediate Level (Q36 - Q70)
 
-## Questions Asked
+| Part | Topics | Link |
+|------|--------|------|
+| Part 01 | Q36 - Q40 | [📖 View](./Intermediate/Part-01) |
+| Part 02 | Q41 - Q45 | [📖 View](./Intermediate/Part-02) |
+| Part 03 | Q46 - Q50 | [📖 View](./Intermediate/Part-03) |
+| Part 04 | Q51 - Q55 | [📖 View](./Intermediate/Part-04) |
+| Part 05 | Q56 - Q60 | [📖 View](./Intermediate/Part-05) |
+| Part 06 | Q61 - Q65 | [📖 View](./Intermediate/Part-06) |
+| Part 07 | Q66 - Q70 | [📖 View](./Intermediate/Part-07) |
 
-### 1. What are React Hooks? Explain them in detail.
+---
 
-#### Answer
+## 🔴 Advanced Level (Q71 - Q100)
 
-React Hooks are special functions introduced in React 16.8 that allow developers to use state and lifecycle features inside functional components without writing class components.
+| Part | Topics | Link |
+|------|--------|------|
+| Part 01 | Q71 - Q75 | [📖 View](./Advanced/Part-01) |
+| Part 02 | Q76 - Q80 | [📖 View](./Advanced/Part-02) |
+| Part 03 | Q81 - Q85 | [📖 View](./Advanced/Part-03) |
+| Part 04 | Q86 - Q90 | [📖 View](./Advanced/Part-04) |
+| Part 05 | Q91 - Q95 | [📖 View](./Advanced/Part-05) |
+| Part 06 | Q96 - Q100 | [📖 View](./Advanced/Part-06) |
 
-Common React Hooks:
+---
 
+# 📖 Question Format
+
+Every interview question contains:
+
+- ✅ Interview Question
+- ✅ Detailed Answer
+- ✅ Easy Explanation
+- ✅ Real-World Example
+- ✅ Code Example
+- ✅ Output
+- ✅ Best Practices
+- ✅ Common Mistakes
+- ✅ Interview Tips
+- ✅ Follow-up Questions
+- ✅ Summary
+
+---
+
+# 🎯 Topics Covered
+
+### React Basics
+- React Introduction
+- JSX
+- Virtual DOM
+- Components
+- Props
+- State
+- Event Handling
+- Forms
+
+### React Hooks
 - useState
 - useEffect
-- useContext
 - useMemo
 - useCallback
 - useRef
 - useReducer
+- Custom Hooks
 
-Example:
+### Routing
+- React Router
+- Dynamic Routes
+- Nested Routes
+- Protected Routes
 
-```jsx
-import { useState } from "react";
+### State Management
+- Context API
+- Redux
+- Redux Toolkit
+- Redux Thunk
+- Redux Saga
+- Zustand
+- MobX
+- Recoil
 
-function Counter() {
-  const [count, setCount] = useState(0);
+### API Integration
+- Fetch API
+- Axios
+- Error Handling
+- Pagination
+- Infinite Scroll
 
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      {count}
-    </button>
-  );
-}
-```
+### Performance Optimization
+- Memoization
+- React.memo
+- Lazy Loading
+- Suspense
+- Code Splitting
+- Tree Shaking
 
----
+### Authentication
+- JWT
+- Refresh Tokens
+- Protected Routes
+- Role-Based Authorization
 
-### 2. How does useState work with Empty and Filled Arrays?
+### Testing
+- Jest
+- React Testing Library
+- Unit Testing
+- Integration Testing
 
-#### Answer
-
-Empty Array:
-
-```jsx
-const [users, setUsers] = useState([]);
-```
-
-Initial value:
-
-```js
-[]
-```
-
-Filled Array:
-
-```jsx
-const [users, setUsers] = useState([
-  {
-    id: 1,
-    name: "John"
-  }
-]);
-```
-
-Initial value:
-
-```js
-[
-  {
-    id: 1,
-    name: "John"
-  }
-]
-```
-
-React re-renders the component whenever a new array reference is passed to `setUsers()`.
+### Enterprise Topics
+- Folder Structure
+- Feature-Based Architecture
+- SOLID Principles
+- Clean Code
+- Design Patterns
+- Security Best Practices
 
 ---
 
-### 3. What are the real-world use cases of useMemo and useCallback?
+# ⭐ Who is this repository for?
 
-#### useMemo
-
-**Definition:**
-
-`useMemo` is a React Hook that remembers (memoizes) the result of a calculation and only recalculates it when its dependencies change.
-
-**Simple Example:**
-
-```jsx
-const squaredNumber = useMemo(() => {
-  return number * number;
-}, [number]);
-```
-
-If `number` does not change, React reuses the previous value instead of recalculating it.
-
-**Real Use Case:**
-
-- Filtering large lists
-- Sorting data
-- Expensive calculations
+- Freshers
+- Junior Developers
+- Mid-Level Developers
+- Senior Developers
+- Technical Leads
+- Full Stack Developers
+- Software Architects
 
 ---
 
-#### useCallback
+# ⭐ Support
 
-**Definition:**
+If this repository helped you prepare for interviews:
 
-`useCallback` is a React Hook that remembers (memoizes) a function and prevents it from being recreated on every render.
+⭐ Star this repository
 
-**Simple Example:**
+🍴 Fork it
 
-```jsx
-const handleClick = useCallback(() => {
-  console.log("Button Clicked");
-}, []);
-```
-
-React will reuse the same function reference on every render.
-
-**Real Use Case:**
-
-- Passing functions to child components
-- Working with `React.memo`
-- Avoiding unnecessary re-renders
+📢 Share it with your friends
 
 ---
 
-#### Difference
+# 📺 YouTube Channel
 
-| useMemo | useCallback |
-|----------|------------|
-| Caches a value | Caches a function |
-| Returns a value | Returns a function |
+**DotNetInterviewHub**
 
-**Easy way to remember:**
+Real Interview Questions • Coding Challenges • System Design • Interview Experiences
 
-```text
-useMemo → Remember a VALUE
-useCallback → Remember a FUNCTION
-```
-
-### 4. Create a Counter Component with Increment and Decrement Buttons
-
-#### Solution
-
-```jsx
-import { useState } from "react";
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <h2>Count: {count}</h2>
-
-      <button
-        onClick={() => setCount(count + 1)}
-      >
-        Increment
-      </button>
-
-      <button
-        onClick={() => setCount(count - 1)}
-      >
-        Decrement
-      </button>
-    </div>
-  );
-}
-
-export default Counter;
-```
-
----
-
-### 5. What is the output of the following JavaScript code?
-
-#### Code
-
-```javascript
-var a = 10;
-var b = '20';
-
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-```
-
-#### Output
-
-```text
-1020
--10
-200
-```
-
-#### Explanation
-
-```javascript
-10 + 20 = 30
-10 - 20 = -10
-10 * 20 = 200
-```
-
----
-
-## Interview Feedback
-
-### Difficulty Level
-
-⭐⭐⭐☆☆ (Moderate)
-
-### Topics Covered
-
-- React Hooks
-- JavaScript Fundamentals
-- State Management
-- Performance Optimization
-- Coding Round
-
----
-
-## License
-
-MIT License
+Happy Learning! 🚀
