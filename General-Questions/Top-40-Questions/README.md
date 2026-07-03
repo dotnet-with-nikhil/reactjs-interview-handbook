@@ -691,6 +691,569 @@ A strong interview answer is:
 
 ---
 
+# ⭐ 3. React Lifecycle Methods
+
+React Lifecycle Methods describe the different stages a component goes through during its lifetime.
+
+Understanding the React lifecycle is one of the most frequently asked React interview topics.
+
+---
+
+# 📌 Interview Questions
+
+- What are React Lifecycle Methods?
+- Explain Mounting, Updating, and Unmounting.
+- What is `componentDidMount()`?
+- What is `componentDidUpdate()`?
+- What is `componentWillUnmount()`?
+- What is the Hooks equivalent of Lifecycle Methods?
+- How does `useEffect()` replace Lifecycle Methods?
+
+---
+
+## 🎯 What is a Component Lifecycle?
+
+Just like a human being has different stages of life:
+
+```
+Birth → Growth → Death
+```
+
+A React component also goes through different stages.
+
+```
+Created
+    │
+    ▼
+Mounted
+    │
+    ▼
+Updated
+    │
+    ▼
+Unmounted
+```
+
+These stages are called the **Component Lifecycle**.
+
+---
+
+## 📊 React Lifecycle Phases
+
+There are **three main phases** in a React component's lifecycle.
+
+| Phase | Meaning |
+|--------|---------|
+| Mounting | Component is created and added to the DOM |
+| Updating | Component is re-rendered because data or props changed |
+| Unmounting | Component is removed from the DOM |
+
+---
+
+## 1️⃣ Mounting Phase
+
+### What is Mounting?
+
+Mounting is the process of **creating a component and inserting it into the DOM**.
+
+It happens only **once** when the component first appears on the screen.
+
+---
+
+### Real-Life Example
+
+Imagine opening Netflix.
+
+```
+Open Netflix
+      │
+      ▼
+Home Page Loads
+      │
+      ▼
+API Call Happens
+      │
+      ▼
+Movies Display
+```
+
+The page loads only once.
+
+This is the **Mounting Phase**.
+
+---
+
+## Class Component
+
+```jsx
+class Home extends React.Component {
+
+    componentDidMount() {
+        console.log("Component Mounted");
+    }
+
+    render() {
+        return <h1>Home</h1>;
+    }
+}
+```
+
+### Output
+
+```
+Component Mounted
+```
+
+Runs only once.
+
+---
+
+## Functional Component (Hooks)
+
+```jsx
+import { useEffect } from "react";
+
+function Home() {
+
+    useEffect(() => {
+        console.log("Component Mounted");
+    }, []);
+
+    return <h1>Home</h1>;
+}
+```
+
+### Why `[]`?
+
+An empty dependency array (`[]`) means:
+
+```
+Run only once
+```
+
+after the first render.
+
+---
+
+## Common Use Cases
+
+- Calling APIs
+- Loading user profile
+- Fetching products
+- Starting timers
+- Loading dashboard data
+- Initializing third-party libraries
+
+---
+
+# 2️⃣ Updating Phase
+
+## What is Updating?
+
+Updating happens whenever:
+
+- State changes
+- Props change
+- Parent component re-renders (and causes this component to re-render)
+
+React updates the UI to reflect the latest data.
+
+---
+
+## Real-Life Example
+
+Shopping Cart
+
+```
+Add Product
+      │
+      ▼
+Cart Count Changes
+      │
+      ▼
+Component Updates
+```
+
+---
+
+## Class Component
+
+```jsx
+class Counter extends React.Component {
+
+    componentDidUpdate() {
+        console.log("Component Updated");
+    }
+
+    render() {
+        return <h1>Counter</h1>;
+    }
+}
+```
+
+Runs after every update.
+
+---
+
+## Functional Component
+
+```jsx
+import { useState, useEffect } from "react";
+
+function Counter() {
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        console.log("Count Updated");
+    }, [count]);
+
+    return (
+        <>
+            <h2>{count}</h2>
+
+            <button onClick={() => setCount(count + 1)}>
+                Increment
+            </button>
+        </>
+    );
+}
+```
+
+### Output
+
+```
+Click Button
+
+Count Updated
+
+Click Again
+
+Count Updated
+```
+
+The effect runs whenever `count` changes.
+
+---
+
+## Common Use Cases
+
+- Search suggestions
+- Updating charts
+- Fetching data when filters change
+- Updating page title
+- Saving form changes automatically
+
+---
+
+# 3️⃣ Unmounting Phase
+
+## What is Unmounting?
+
+Unmounting happens when a component is **removed from the DOM**.
+
+This is the last stage of the component lifecycle.
+
+---
+
+## Real-Life Example
+
+Imagine leaving a chat application.
+
+```
+Open Chat
+      │
+      ▼
+Receive Messages
+      │
+      ▼
+Close Chat
+      │
+      ▼
+Stop Listening
+```
+
+When the chat closes, resources should be cleaned up.
+
+---
+
+## Class Component
+
+```jsx
+class Timer extends React.Component {
+
+    componentWillUnmount() {
+        console.log("Component Removed");
+    }
+
+    render() {
+        return <h1>Timer</h1>;
+    }
+}
+```
+
+---
+
+## Functional Component
+
+```jsx
+import { useEffect } from "react";
+
+function Timer() {
+
+    useEffect(() => {
+
+        console.log("Timer Started");
+
+        return () => {
+            console.log("Timer Stopped");
+        };
+
+    }, []);
+
+    return <h1>Timer</h1>;
+}
+```
+
+When the component is removed:
+
+```
+Timer Stopped
+```
+
+---
+
+## Common Use Cases
+
+- Clear timers
+- Remove event listeners
+- Close WebSocket connections
+- Cancel API requests
+- Stop subscriptions
+
+---
+
+# 🔄 Complete Lifecycle Flow
+
+```text
+Component Created
+        │
+        ▼
+Mounting
+(componentDidMount)
+(useEffect(() => {}, []))
+        │
+        ▼
+Updating
+(componentDidUpdate)
+(useEffect(() => {}, [dependency]))
+        │
+        ▼
+Unmounting
+(componentWillUnmount)
+(return () => {})
+```
+
+---
+
+# 🪝 Hooks Equivalent
+
+| Class Component | Functional Component |
+|-----------------|----------------------|
+| `componentDidMount()` | `useEffect(() => {}, [])` |
+| `componentDidUpdate()` | `useEffect(() => {}, [dependency])` |
+| `componentWillUnmount()` | `return () => {}` inside `useEffect()` |
+
+---
+
+# 💻 One Example Covering All Three Phases
+
+```jsx
+import { useState, useEffect } from "react";
+
+function Counter() {
+
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+
+        console.log("Mounted");
+
+        return () => {
+            console.log("Unmounted");
+        };
+
+    }, []);
+
+    useEffect(() => {
+        console.log("Updated:", count);
+    }, [count]);
+
+    return (
+        <>
+            <h2>{count}</h2>
+
+            <button onClick={() => setCount(count + 1)}>
+                Increment
+            </button>
+        </>
+    );
+}
+
+export default Counter;
+```
+
+### Console Output
+
+```
+Mounted
+
+Updated: 1
+
+Updated: 2
+
+Updated: 3
+
+Unmounted
+```
+
+---
+
+# 🌍 Real-World Examples
+
+| Lifecycle | Example |
+|------------|----------|
+| Mounting | Fetch user profile when page opens |
+| Updating | Update search results as the user types |
+| Unmounting | Stop timers or WebSocket connections when leaving the page |
+
+---
+
+# 🎯 Interview Scenario
+
+### Interviewer
+
+> Where would you call an API in React?
+
+### Answer
+
+During the **Mounting Phase**.
+
+```jsx
+useEffect(() => {
+
+    fetchUsers();
+
+}, []);
+```
+
+---
+
+### Interviewer
+
+> Where would you clear a timer?
+
+### Answer
+
+During the **Unmounting Phase**.
+
+```jsx
+useEffect(() => {
+
+    const timer = setInterval(() => {
+
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+}, []);
+```
+
+---
+
+### Interviewer
+
+> When does `componentDidUpdate()` execute?
+
+### Answer
+
+It executes **after every update** caused by changes in **state or props**.
+
+The Hooks equivalent is:
+
+```jsx
+useEffect(() => {
+
+    console.log("Updated");
+
+}, [dependency]);
+```
+
+---
+
+# ⚖️ Class Lifecycle vs Hooks
+
+| Lifecycle Stage | Class Component | Functional Component |
+|-----------------|-----------------|----------------------|
+| Mounting | `componentDidMount()` | `useEffect(() => {}, [])` |
+| Updating | `componentDidUpdate()` | `useEffect(() => {}, [dependency])` |
+| Unmounting | `componentWillUnmount()` | `return () => {}` inside `useEffect()` |
+
+---
+
+# 📝 Memory Trick
+
+```
+M → Mount
+U → Update
+U → Unmount
+
+M U U
+```
+
+Or remember:
+
+```
+Born
+ ↓
+Mounted
+
+Changes
+ ↓
+Updated
+
+Removed
+ ↓
+Unmounted
+```
+
+---
+
+# 💡 Interview Tip
+
+A strong interview answer is:
+
+> **React components go through three lifecycle phases: Mounting, Updating, and Unmounting. In class components, these are handled using `componentDidMount()`, `componentDidUpdate()`, and `componentWillUnmount()`. In functional components, the `useEffect()` Hook replaces these lifecycle methods by controlling when side effects run and when cleanup occurs.**
+
+---
+
+# ⭐ Quick Revision
+
+| Phase | Class Component | Hooks |
+|--------|-----------------|--------|
+| Mounting | `componentDidMount()` | `useEffect(() => {}, [])` |
+| Updating | `componentDidUpdate()` | `useEffect(() => {}, [dependency])` |
+| Unmounting | `componentWillUnmount()` | `return () => {}` |
+
+---
+
+# 🚀 Interview One-Liner
+
+> **React components have three lifecycle phases—Mounting, Updating, and Unmounting. In modern React, the `useEffect()` Hook replaces lifecycle methods by handling initialization, updates based on dependencies, and cleanup when the component is removed.**
+
+---
+
+
 ## ⭐ 4. Virtual DOM
 
 ### Interview Questions
