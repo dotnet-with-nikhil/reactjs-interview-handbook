@@ -382,7 +382,7 @@ It is mainly used to share data like:
 
 ---
 
-# 🤔 Why was Context API Introduced?
+## 🤔 Why was Context API Introduced?
 
 Imagine you have multiple nested components.
 
@@ -419,7 +419,7 @@ This is called **Prop Drilling**.
 
 ---
 
-# ❌ What is Prop Drilling?
+## ❌ What is Prop Drilling?
 
 **Prop Drilling** means passing props from a parent component through multiple intermediate components just so a deeply nested child can access the data.
 
@@ -496,7 +496,7 @@ This unnecessary passing of props is called **Prop Drilling**.
 
 ---
 
-# ✅ How Does Context API Avoid Prop Drilling?
+## ✅ How Does Context API Avoid Prop Drilling?
 
 Instead of passing props through every component, React stores the data inside a **Context Provider**.
 
@@ -525,7 +525,7 @@ No props are passed through Header or Navbar.
 
 ---
 
-# 💻 Step 1: Create Context
+## 💻 Step 1: Create Context
 
 ```jsx
 import { createContext } from "react";
@@ -537,7 +537,7 @@ export default UserContext;
 
 ---
 
-# 💻 Step 2: Provide Context
+## 💻 Step 2: Provide Context
 
 ```jsx
 import UserContext from "./UserContext";
@@ -559,7 +559,7 @@ export default App;
 
 ---
 
-# 💻 Step 3: Consume Context
+## 💻 Step 3: Consume Context
 
 ```jsx
 import { useContext } from "react";
@@ -585,7 +585,7 @@ Notice that neither **Header** nor **Navbar** receives any props.
 
 ---
 
-# 🔄 How Context API Works
+## 🔄 How Context API Works
 
 ```text
 createContext()
@@ -602,7 +602,7 @@ useContext() reads data
 
 ---
 
-# 🌍 Real-World Examples
+## 🌍 Real-World Examples
 
 Context API is commonly used for:
 
