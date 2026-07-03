@@ -2559,9 +2559,9 @@ Nikhil
 
 ---
 
-## ⭐ Can We Use `useState()` Without the Setter Function?
+### ⭐ Can We Use `useState()` Without the Setter Function?
 
-### ✅ Answer
+#### ✅ Answer
 
 **Yes, technically you can.**
 
@@ -2577,7 +2577,7 @@ const [state, setState] = useState(initialValue);
 If you don't need to update the state, you can ignore the setter function.
 
 ---
-# 💻 Example
+## 💻 Example
 
 ```jsx
 import { useState } from "react";
@@ -2592,7 +2592,7 @@ function App() {
 export default App;
 ```
 
-### Output
+#### Output
 
 ```
 Nikhil
@@ -2602,7 +2602,7 @@ This works because we're only reading the state and never updating it.
 
 ---
 
-# 💻 Ignoring the Setter Function
+### 💻 Ignoring the Setter Function
 
 You can intentionally ignore the setter function.
 
@@ -2626,11 +2626,11 @@ Using `_setName` is a common convention to indicate that the setter is intention
 
 ---
 
-# 🤔 When Should You Do This?
+### 🤔 When Should You Do This?
 
 You can ignore the setter if the value never changes after the component is initialized.
 
-### Example
+#### Example
 
 ```jsx
 const [company] = useState("OpenAI");
@@ -2640,7 +2640,7 @@ Since `company` never changes, the setter isn't needed.
 
 ---
 
-# ⚠️ Is It Recommended?
+### ⚠️ Is It Recommended?
 
 Generally, **No**.
 
