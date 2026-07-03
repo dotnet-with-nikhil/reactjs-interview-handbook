@@ -2559,6 +2559,108 @@ Nikhil
 
 ---
 
+## ⭐ Can We Use `useState()` Without the Setter Function?
+
+### ✅ Answer
+
+**Yes, technically you can.**
+
+The `useState()` Hook returns an array containing two values:
+
+1. The current state value
+2. A setter function used to update the state
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+If you don't need to update the state, you can ignore the setter function.
+
+---
+# 💻 Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+
+    const [name] = useState("Nikhil");
+
+    return <h1>{name}</h1>;
+}
+
+export default App;
+```
+
+### Output
+
+```
+Nikhil
+```
+
+This works because we're only reading the state and never updating it.
+
+---
+
+# 💻 Ignoring the Setter Function
+
+You can intentionally ignore the setter function.
+
+```jsx
+const [name] = useState("Nikhil");
+```
+
+or
+
+```jsx
+const [name, ] = useState("Nikhil");
+```
+
+or
+
+```jsx
+const [name, _setName] = useState("Nikhil");
+```
+
+Using `_setName` is a common convention to indicate that the setter is intentionally unused.
+
+---
+
+# 🤔 When Should You Do This?
+
+You can ignore the setter if the value never changes after the component is initialized.
+
+### Example
+
+```jsx
+const [company] = useState("OpenAI");
+```
+
+Since `company` never changes, the setter isn't needed.
+
+---
+
+# ⚠️ Is It Recommended?
+
+Generally, **No**.
+
+If the value never changes, using `useState()` is unnecessary.
+
+Instead of:
+
+```jsx
+const [company] = useState("OpenAI");
+```
+
+Prefer:
+
+```jsx
+const company = "OpenAI";
+```
+
+This is simpler, more readable, and avoids unnecessary state management.
+---
+
 ## ⚖️ State vs Props
 
 | Feature | State | Props |
@@ -2717,6 +2819,9 @@ A strong interview answer is:
 | `useContext()` | Access shared context |
 
 ---
+
+
+
 
 
 ## ⭐ 7. useEffect Deep Dive
