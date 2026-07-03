@@ -353,7 +353,7 @@ File inputs are naturally **Uncontrolled Components** because browsers do not al
 ---
 
 
-## ⭐ 2. Context API
+# ⭐ 2. Context API
 
 ### Interview Questions
 
@@ -363,6 +363,259 @@ File inputs are naturally **Uncontrolled Components** because browsers do not al
 - When should Context API be used?
 
 ---
+
+## ✅ What is Context API?
+
+The **Context API** is a built-in feature of React that allows you to **share data globally** across multiple components without passing props manually.
+
+It is mainly used to share data like:
+
+- Logged-in User
+- Theme (Dark/Light)
+- Language
+- Authentication Status
+- Application Settings
+
+> **Simple Definition**
+>
+> **Context API lets you share data across components without passing props manually.**
+
+---
+
+# 🤔 Why was Context API Introduced?
+
+Imagine you have multiple nested components.
+
+```
+App
+ │
+ ▼
+Header
+ │
+ ▼
+Navbar
+ │
+ ▼
+Profile
+```
+
+Suppose the **Profile** component needs the logged-in user's name.
+
+Without Context API, you must pass the data through every intermediate component.
+
+```
+App
+ ↓
+Header
+ ↓
+Navbar
+ ↓
+Profile
+```
+
+Even though **Header** and **Navbar** don't use the data, they still have to pass it down.
+
+This is called **Prop Drilling**.
+
+---
+
+# ❌ What is Prop Drilling?
+
+**Prop Drilling** means passing props from a parent component through multiple intermediate components just so a deeply nested child can access the data.
+
+---
+
+## Example of Prop Drilling
+
+### App.jsx
+
+```jsx
+import Header from "./Header";
+
+function App() {
+  const user = "Nikhil";
+
+  return <Header user={user} />;
+}
+```
+
+---
+
+### Header.jsx
+
+```jsx
+import Navbar from "./Navbar";
+
+function Header({ user }) {
+  return <Navbar user={user} />;
+}
+```
+
+---
+
+### Navbar.jsx
+
+```jsx
+import Profile from "./Profile";
+
+function Navbar({ user }) {
+  return <Profile user={user} />;
+}
+```
+
+---
+
+### Profile.jsx
+
+```jsx
+function Profile({ user }) {
+  return <h2>Welcome {user}</h2>;
+}
+```
+
+---
+
+### Component Flow
+
+```text
+App
+ │ user
+ ▼
+Header
+ │ user
+ ▼
+Navbar
+ │ user
+ ▼
+Profile
+```
+
+Notice that **Header** and **Navbar** don't need the `user` data—they only forward it.
+
+This unnecessary passing of props is called **Prop Drilling**.
+
+---
+
+# ✅ How Does Context API Avoid Prop Drilling?
+
+Instead of passing props through every component, React stores the data inside a **Context Provider**.
+
+Any component inside the Provider can access the data directly using `useContext()`.
+
+---
+
+## Component Flow with Context API
+
+```text
+                User Context
+                     │
+                     ▼
+                  App
+                /     \
+          Header     Footer
+             │
+          Navbar
+             │
+          Profile
+```
+
+Profile directly accesses the context.
+
+No props are passed through Header or Navbar.
+
+---
+
+# 💻 Step 1: Create Context
+
+```jsx
+import { createContext } from "react";
+
+const UserContext = createContext();
+
+export default UserContext;
+```
+
+---
+
+# 💻 Step 2: Provide Context
+
+```jsx
+import UserContext from "./UserContext";
+import Header from "./Header";
+
+function App() {
+
+  const user = "Nikhil";
+
+  return (
+    <UserContext.Provider value={user}>
+      <Header />
+    </UserContext.Provider>
+  );
+}
+
+export default App;
+```
+
+---
+
+# 💻 Step 3: Consume Context
+
+```jsx
+import { useContext } from "react";
+import UserContext from "./UserContext";
+
+function Profile() {
+
+  const user = useContext(UserContext);
+
+  return <h2>Welcome {user}</h2>;
+}
+```
+
+---
+
+### Output
+
+```
+Welcome Nikhil
+```
+
+Notice that neither **Header** nor **Navbar** receives any props.
+
+---
+
+# 🔄 How Context API Works
+
+```text
+createContext()
+        │
+        ▼
+Provider stores data
+        │
+        ▼
+Child Components
+        │
+        ▼
+useContext() reads data
+```
+
+---
+
+# 🌍 Real-World Examples
+
+Context API is commonly used for:
+
+- 🌙 Dark/Light Theme
+- 👤 Logged-in User
+- 🌐 Language Selection
+- 🔐 Authentication
+- 🛒 Shopping Cart Count
+- ⚙️ Application Settings
+
+---
+
+
 
 ## ⭐ 3. React Lifecycle Methods
 
