@@ -265,7 +265,7 @@ const emailRef = useRef();
 React reads the value only when needed.
 
 ---
-# 🎯 When Should You Use Controlled Components?
+## 🎯 When Should You Use Controlled Components?
 
 Use Controlled Components when you need:
 
@@ -294,7 +294,7 @@ The UI updates instantly as the user types.
 
 ---
 
-# 🎯 When Should You Use Uncontrolled Components?
+## 🎯 When Should You Use Uncontrolled Components?
 
 Use Uncontrolled Components when:
 
@@ -313,19 +313,19 @@ Use Uncontrolled Components when:
 File inputs are naturally **Uncontrolled Components** because browsers do not allow JavaScript to set their value programmatically.
 
 ---
-# 🌍 Real-World Interview Scenarios
+## 🌍 Real-World Interview Scenarios
 
-## Scenario 1
+### Scenario 1
 
-### Interviewer
+#### Interviewer
 
 > You are building a Login Page. Which approach would you use?
 
-### Answer
+#### Answer
 
 **Controlled Components**
 
-### Why?
+#### Why?
 
 - Email validation
 - Password validation
@@ -335,17 +335,17 @@ File inputs are naturally **Uncontrolled Components** because browsers do not al
 
 ---
 
-## Scenario 2
+### Scenario 2
 
-### Interviewer
+#### Interviewer
 
 > You are building a Resume Upload page. Which approach would you use?
 
-### Answer
+#### Answer
 
 **Uncontrolled Components**
 
-### Why?
+#### Why?
 
 - File inputs are naturally uncontrolled.
 - The selected file is only required when submitting the form.
