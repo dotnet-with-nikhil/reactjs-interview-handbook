@@ -614,6 +614,67 @@ Context API is commonly used for:
 - ⚙️ Application Settings
 
 ---
+# 🎯 When Should You Use Context API?
+
+Use Context API when:
+
+- Theme Switching
+- Logged-in User Information
+- Language Settings
+- Authentication Status
+- Application Settings
+- Small to Medium Applications
+- Data shared by many components
+
+---
+
+# 🚫 When Should You Avoid Context API?
+
+Avoid Context API when:
+
+- Your application has a very large global state.
+- Multiple unrelated states are updated frequently.
+- You need advanced debugging or middleware.
+- Your application has complex business logic.
+
+In such cases, tools like **Redux**, **Redux Toolkit**, or other state management libraries are often a better fit.
+
+---
+# 🌍 Real-World Interview Scenarios
+
+## Scenario 1
+
+### Interviewer
+
+> Your application has a Dark/Light Theme used by every page. What would you use?
+
+### Answer
+
+**Context API**
+
+Because the theme is shared across the application and doesn't require complex state management.
+
+---
+
+## Scenario 2
+
+### Interviewer
+
+> Your application has authentication, shopping cart, orders, payments, notifications, and many complex states. What would you use?
+
+### Answer
+
+**Redux (or Redux Toolkit)**
+
+Because it provides centralized state management, middleware support, DevTools, and scales well for large applications.
+
+---
+
+# 💡 Interview Tip
+
+A strong interview answer is:
+
+> **Context API is React's built-in solution for sharing global data without prop drilling. It is ideal for simple shared state like themes, authentication, or language preferences. For complex applications with large and frequently changing global state, Redux or Redux Toolkit is generally a better choice.**
 
 
 
