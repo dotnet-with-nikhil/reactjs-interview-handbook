@@ -846,9 +846,9 @@ after the first render.
 
 ---
 
-# 2️⃣ Updating Phase
+## 2️⃣ Updating Phase
 
-## What is Updating?
+### What is Updating?
 
 Updating happens whenever:
 
@@ -860,7 +860,7 @@ React updates the UI to reflect the latest data.
 
 ---
 
-## Real-Life Example
+### Real-Life Example
 
 Shopping Cart
 
@@ -876,7 +876,7 @@ Component Updates
 
 ---
 
-## Class Component
+### Class Component
 
 ```jsx
 class Counter extends React.Component {
@@ -895,7 +895,7 @@ Runs after every update.
 
 ---
 
-## Functional Component
+### Functional Component
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -936,7 +936,7 @@ The effect runs whenever `count` changes.
 
 ---
 
-## Common Use Cases
+### Common Use Cases
 
 - Search suggestions
 - Updating charts
@@ -946,9 +946,9 @@ The effect runs whenever `count` changes.
 
 ---
 
-# 3️⃣ Unmounting Phase
+## 3️⃣ Unmounting Phase
 
-## What is Unmounting?
+### What is Unmounting?
 
 Unmounting happens when a component is **removed from the DOM**.
 
@@ -956,7 +956,7 @@ This is the last stage of the component lifecycle.
 
 ---
 
-## Real-Life Example
+### Real-Life Example
 
 Imagine leaving a chat application.
 
@@ -977,7 +977,7 @@ When the chat closes, resources should be cleaned up.
 
 ---
 
-## Class Component
+### Class Component
 
 ```jsx
 class Timer extends React.Component {
@@ -994,7 +994,7 @@ class Timer extends React.Component {
 
 ---
 
-## Functional Component
+### Functional Component
 
 ```jsx
 import { useEffect } from "react";
@@ -1023,7 +1023,7 @@ Timer Stopped
 
 ---
 
-## Common Use Cases
+### Common Use Cases
 
 - Clear timers
 - Remove event listeners
@@ -1033,7 +1033,7 @@ Timer Stopped
 
 ---
 
-# 🔄 Complete Lifecycle Flow
+## 🔄 Complete Lifecycle Flow
 
 ```text
 Component Created
@@ -1056,7 +1056,7 @@ Unmounting
 
 ---
 
-# 🪝 Hooks Equivalent
+## 🪝 Hooks Equivalent
 
 | Class Component | Functional Component |
 |-----------------|----------------------|
@@ -1066,7 +1066,7 @@ Unmounting
 
 ---
 
-# 💻 One Example Covering All Three Phases
+## 💻 One Example Covering All Three Phases
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -1119,7 +1119,7 @@ Unmounted
 
 ---
 
-# 🌍 Real-World Examples
+## 🌍 Real-World Examples
 
 | Lifecycle | Example |
 |------------|----------|
@@ -1129,7 +1129,7 @@ Unmounted
 
 ---
 
-# 🎯 Interview Scenario
+## 🎯 Interview Scenario
 
 ### Interviewer
 
@@ -1191,7 +1191,7 @@ useEffect(() => {
 
 ---
 
-# ⚖️ Class Lifecycle vs Hooks
+## ⚖️ Class Lifecycle vs Hooks
 
 | Lifecycle Stage | Class Component | Functional Component |
 |-----------------|-----------------|----------------------|
@@ -1201,7 +1201,7 @@ useEffect(() => {
 
 ---
 
-# 📝 Memory Trick
+## 📝 Memory Trick
 
 ```
 M → Mount
@@ -1229,7 +1229,7 @@ Unmounted
 
 ---
 
-# 💡 Interview Tip
+## 💡 Interview Tip
 
 A strong interview answer is:
 
@@ -1237,7 +1237,7 @@ A strong interview answer is:
 
 ---
 
-# ⭐ Quick Revision
+## ⭐ Quick Revision
 
 | Phase | Class Component | Hooks |
 |--------|-----------------|--------|
@@ -1247,7 +1247,7 @@ A strong interview answer is:
 
 ---
 
-# 🚀 Interview One-Liner
+## 🚀 Interview One-Liner
 
 > **React components have three lifecycle phases—Mounting, Updating, and Unmounting. In modern React, the `useEffect()` Hook replaces lifecycle methods by handling initialization, updates based on dependencies, and cleanup when the component is removed.**
 
