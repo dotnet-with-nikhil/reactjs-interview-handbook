@@ -3560,14 +3560,556 @@ A strong interview answer is:
 
 ---
 
-## ⭐ 8. useMemo vs useCallback
+# ⭐ 8. useMemo vs useCallback
 
-### Interview Questions
+`useMemo()` and `useCallback()` are **performance optimization Hooks** in React.
 
-- Differences
-- Use cases
-- Performance optimization
+They help avoid unnecessary calculations and unnecessary function recreations, making React applications more efficient.
 
+> **Simple Definition**
+>
+> - **useMemo() remembers a value.**
+> - **useCallback() remembers a function.**
+
+---
+
+## 📌 Interview Questions
+
+- What is `useMemo()`?
+- What is `useCallback()`?
+- What is the difference between `useMemo()` and `useCallback()`?
+- When should you use each?
+- How do they improve performance?
+- When should you avoid using them?
+
+---
+
+## 🎯 Why Do We Need Performance Optimization?
+
+Every time a React component re-renders:
+
+- Variables are recreated.
+- Functions are recreated.
+- Calculations are executed again.
+
+Sometimes, these operations are expensive and unnecessary.
+
+Example:
+
+```text
+User clicks a button
+
+↓
+
+Component Re-renders
+
+↓
+
+Large Calculation Runs Again ❌
+```
+
+React provides:
+
+- `useMemo()` → Cache expensive calculations.
+- `useCallback()` → Cache functions.
+
+---
+
+## ⭐ What is useMemo()?
+
+`useMemo()` **memoizes (caches) the result of a calculation**.
+
+React recalculates the value **only when its dependencies change**.
+
+> **Simple Definition**
+>
+> **useMemo() remembers the result of an expensive calculation.**
+
+---
+
+### Syntax
+
+```jsx
+const memoizedValue = useMemo(() => {
+
+    return calculation();
+
+}, [dependencies]);
+```
+
+---
+
+### Example
+
+Without `useMemo()`:
+
+```jsx
+function App({ products }) {
+
+    const total = products.reduce(
+        (sum, item) => sum + item.price,
+        0
+    );
+
+    return <h2>{total}</h2>;
+}
+```
+
+Every render recalculates `total`.
+
+---
+
+With `useMemo()`:
+
+```jsx
+import { useMemo } from "react";
+
+function App({ products }) {
+
+    const total = useMemo(() => {
+
+        return products.reduce(
+            (sum, item) => sum + item.price,
+            0
+        );
+
+    }, [products]);
+
+    return <h2>{total}</h2>;
+}
+```
+
+Now the calculation runs **only when `products` changes**.
+
+---
+
+## 🌍 Real-World Example
+
+E-commerce Website
+
+```
+1,000 Products
+
+↓
+
+Calculate Total Price
+
+↓
+
+User Changes Theme
+
+↓
+
+Without useMemo
+
+↓
+
+Total Price Calculated Again ❌
+```
+
+With `useMemo()`:
+
+```
+Theme Changes
+
+↓
+
+Reuse Previous Total ✅
+```
+
+---
+
+## ⭐ What is useCallback()?
+
+`useCallback()` memoizes a function.
+
+Instead of creating a new function on every render, React reuses the existing function until its dependencies change.
+
+> **Simple Definition**
+>
+> **useCallback() remembers a function.**
+
+---
+
+### Syntax
+
+```jsx
+const memoizedFunction = useCallback(() => {
+
+}, [dependencies]);
+```
+
+---
+
+### Example
+
+Without `useCallback()`:
+
+```jsx
+function Parent() {
+
+    const handleClick = () => {
+
+        console.log("Clicked");
+
+    };
+
+    return <Child onClick={handleClick} />;
+}
+```
+
+Every render creates a **new `handleClick` function**.
+
+---
+
+With `useCallback()`:
+
+```jsx
+import { useCallback } from "react";
+
+function Parent() {
+
+    const handleClick = useCallback(() => {
+
+        console.log("Clicked");
+
+    }, []);
+
+    return <Child onClick={handleClick} />;
+}
+```
+
+Now React reuses the same function reference.
+
+---
+
+### 🌍 Real-World Example
+
+Imagine a parent component with a child wrapped in `React.memo()`.
+
+Without `useCallback()`:
+
+```
+Parent Re-renders
+
+↓
+
+New Function Created
+
+↓
+
+Child Re-renders ❌
+```
+
+With `useCallback()`:
+
+```
+Parent Re-renders
+
+↓
+
+Same Function Reused
+
+↓
+
+Child Doesn't Re-render ✅
+```
+
+---
+
+### ⚖️ useMemo vs useCallback
+
+| Feature | useMemo | useCallback |
+|----------|----------|-------------|
+| Returns | Memoized Value | Memoized Function |
+| Purpose | Cache expensive calculations | Cache functions |
+| Prevents | Unnecessary recalculations | Unnecessary function recreation |
+| Return Type | Any value | Function |
+| Common Use | Filtering, Sorting, Total Calculation | Event Handlers, Callback Props |
+
+---
+
+## 📊 Simple Comparison
+
+### useMemo()
+
+```jsx
+const total = useMemo(() => {
+
+    return calculateTotal();
+
+}, []);
+```
+
+Returns:
+
+```
+5000
+```
+
+A **value**.
+
+---
+
+### useCallback()
+
+```jsx
+const handleClick = useCallback(() => {
+
+    console.log("Clicked");
+
+}, []);
+```
+
+Returns:
+
+```
+Function
+```
+
+A **function**.
+
+---
+
+## 🧠 Performance Comparison
+
+Without Optimization
+
+```text
+Render
+
+↓
+
+Calculation Runs Again
+
+↓
+
+Function Created Again
+```
+
+---
+
+With Optimization
+
+```text
+Render
+
+↓
+
+Reuse Value
+
+↓
+
+Reuse Function
+```
+
+---
+
+## 🎯 When Should You Use useMemo()?
+
+Use `useMemo()` when:
+
+- Expensive calculations
+- Sorting large lists
+- Filtering large datasets
+- Searching
+- Mathematical computations
+- Derived values
+
+---
+
+### Example
+
+```jsx
+const filteredProducts = useMemo(() => {
+
+    return products.filter(
+        product => product.price > 1000
+    );
+
+}, [products]);
+```
+
+---
+
+## 🎯 When Should You Use useCallback()?
+
+Use `useCallback()` when:
+
+- Passing functions to child components
+- Using `React.memo()`
+- Preventing unnecessary child re-renders
+- Event handlers
+- Callback props
+
+---
+
+### Example
+
+```jsx
+const handleDelete = useCallback((id) => {
+
+    console.log(id);
+
+}, []);
+```
+
+---
+
+## ⚠️ When Should You Avoid Them?
+
+Don't use these Hooks everywhere.
+
+They also have a small memory and comparison cost.
+
+If the calculation or function is simple, memoization may provide little or no benefit.
+
+Example:
+
+```jsx
+const sum = a + b;
+```
+
+No need for:
+
+```jsx
+useMemo(() => a + b, [a, b]);
+```
+
+---
+
+## 🌍 Real-World Examples
+
+| Hook | Example |
+|--------|----------|
+| `useMemo()` | Product Filtering |
+| `useMemo()` | Search Results |
+| `useMemo()` | Total Price |
+| `useCallback()` | Delete Button |
+| `useCallback()` | Edit Button |
+| `useCallback()` | Form Submit |
+
+---
+
+## 🎯 Interview Scenarios
+
+### Scenario 1
+
+#### Interviewer
+
+> You have a list of 10,000 products. Filtering is slow. Which Hook would you use?
+
+#### Answer
+
+**`useMemo()`**
+
+Because filtering is an expensive calculation that should only run when the product list changes.
+
+---
+
+### Scenario 2
+
+#### Interviewer
+
+> A child component wrapped with `React.memo()` keeps re-rendering because a callback prop changes every render. Which Hook would you use?
+
+#### Answer
+
+**`useCallback()`**
+
+It memoizes the callback function, keeping the same function reference between renders unless its dependencies change.
+
+---
+
+### Scenario 3
+
+#### Interviewer
+
+> Which Hook returns a function?
+
+#### Answer
+
+`useCallback()`
+
+---
+
+### Scenario 4
+
+#### Interviewer
+
+> Which Hook returns a calculated value?
+
+#### Answer
+
+`useMemo()`
+
+---
+
+## 📝 Memory Trick
+
+```
+Memo
+
+↓
+
+Memory
+
+↓
+
+Remember Value
+```
+
+```
+Callback
+
+↓
+
+Remember Function
+```
+
+Or simply remember:
+
+```
+useMemo
+
+↓
+
+Memoize VALUE
+
+
+useCallback
+
+↓
+
+Memoize FUNCTION
+```
+
+---
+
+## 💡 Interview Tip
+
+A strong interview answer is:
+
+> **`useMemo()` memoizes the result of an expensive calculation, while `useCallback()` memoizes a function. Both are performance optimization Hooks. `useMemo()` is useful for avoiding repeated computations, and `useCallback()` is useful for preventing unnecessary function recreation, especially when passing callbacks to memoized child components. They should be used only when there is a measurable performance benefit.**
+
+---
+
+## ⭐ Quick Revision
+
+| Hook | Purpose |
+|--------|----------|
+| `useMemo()` | Cache calculated values |
+| `useCallback()` | Cache functions |
+| `useMemo()` Returns | Value |
+| `useCallback()` Returns | Function |
+| Best For | Expensive calculations |
+| Best For | Callback props and event handlers |
+
+---
+
+## 🚀 Interview One-Liner
+
+> **`useMemo()` caches calculated values, while `useCallback()` caches functions. Both improve React performance by avoiding unnecessary recalculations and function recreations, but they should be used only when optimization is actually needed.**
 ---
 
 ## ⭐ 9. useRef
