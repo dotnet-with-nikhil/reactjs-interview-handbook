@@ -640,15 +640,15 @@ Avoid Context API when:
 In such cases, tools like **Redux**, **Redux Toolkit**, or other state management libraries are often a better fit.
 
 ---
-# 🌍 Real-World Interview Scenarios
+## 🌍 Real-World Interview Scenarios
 
-## Scenario 1
+### Scenario 1
 
-### Interviewer
+#### Interviewer
 
 > Your application has a Dark/Light Theme used by every page. What would you use?
 
-### Answer
+#### Answer
 
 **Context API**
 
@@ -656,13 +656,13 @@ Because the theme is shared across the application and doesn't require complex s
 
 ---
 
-## Scenario 2
+### Scenario 2
 
-### Interviewer
+#### Interviewer
 
 > Your application has authentication, shopping cart, orders, payments, notifications, and many complex states. What would you use?
 
-### Answer
+#### Answer
 
 **Redux (or Redux Toolkit)**
 
@@ -670,12 +670,13 @@ Because it provides centralized state management, middleware support, DevTools, 
 
 ---
 
-# 💡 Interview Tip
+## 💡 Interview Tip
 
 A strong interview answer is:
 
 > **Context API is React's built-in solution for sharing global data without prop drilling. It is ideal for simple shared state like themes, authentication, or language preferences. For complex applications with large and frequently changing global state, Redux or Redux Toolkit is generally a better choice.**
 
+---
 
 
 ## ⭐ 3. React Lifecycle Methods
