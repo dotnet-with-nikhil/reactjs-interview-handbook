@@ -4,7 +4,7 @@ Comprehensive GitHub-ready list of React interview topics.
 
 ---
 
-## ⭐ 1. Controlled vs Uncontrolled Components
+# ⭐ 1. Controlled vs Uncontrolled Components
 
 ### Interview Questions
 
@@ -16,18 +16,7 @@ Comprehensive GitHub-ready list of React interview topics.
 
 ---
 
-
-# 📌 Interview Questions
-
-- What are Controlled Components?
-- What are Uncontrolled Components?
-- What are the differences between them?
-- When should you use each approach?
-- Explain with real-world examples.
-
----
-
-# ✅ What are Controlled Components?
+## ✅ What are Controlled Components?
 
 A **Controlled Component** is a form element whose value is **controlled by React State**.
 
@@ -148,7 +137,7 @@ setName("");
 
 ---
 
-# ✅ What are Uncontrolled Components?
+## ✅ What are Uncontrolled Components?
 
 An **Uncontrolled Component** stores its own state inside the **DOM** instead of React.
 
