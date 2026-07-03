@@ -16,6 +16,354 @@ Comprehensive GitHub-ready list of React interview topics.
 
 ---
 
+
+# 📌 Interview Questions
+
+- What are Controlled Components?
+- What are Uncontrolled Components?
+- What are the differences between them?
+- When should you use each approach?
+- Explain with real-world examples.
+
+---
+
+# ✅ What are Controlled Components?
+
+A **Controlled Component** is a form element whose value is **controlled by React State**.
+
+React stores the current value using `useState`, and every time the user types, React updates the state through the `onChange` event.
+
+> **Simple Definition**
+>
+> **React controls the input.**
+
+---
+
+## 🔄 How it Works
+
+```text
+User Types
+      │
+      ▼
+ onChange Event
+      │
+      ▼
+ React State Updates
+      │
+      ▼
+ Input Value Updates
+```
+
+---
+
+## 💻 Example
+
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <p>Your Name: {name}</p>
+    </>
+  );
+}
+
+export default App;
+```
+
+### Output
+
+```
+Input:
+John
+
+Output:
+Your Name: John
+```
+
+Every keystroke updates the React state.
+
+```
+J
+Jo
+Joh
+John
+```
+
+---
+
+## ✅ Advantages
+
+- Easy form validation
+- Easy error handling
+- Live UI updates
+- Easy to reset forms
+- Better control over user input
+- Works well with dynamic forms
+
+### Validation Example
+
+```jsx
+if (name.length < 3) {
+    // Show validation message
+}
+```
+
+### Disable Submit Button
+
+```jsx
+<button disabled={!name}>
+    Submit
+</button>
+```
+
+### Reset Form
+
+```jsx
+setName("");
+```
+
+---
+
+## 🌍 Real-World Examples
+
+- Login Form
+- Registration Form
+- Contact Form
+- Search Box
+- OTP Verification
+- Checkout Form
+- Multi-step Forms
+
+> **Most React applications use Controlled Components.**
+
+---
+
+# ✅ What are Uncontrolled Components?
+
+An **Uncontrolled Component** stores its own state inside the **DOM** instead of React.
+
+React does not track the input value while the user is typing. Instead, it reads the value only when needed using `useRef()`.
+
+> **Simple Definition**
+>
+> **The DOM controls the input.**
+
+---
+
+## 🔄 How it Works
+
+```text
+User Types
+      │
+      ▼
+ Input Stores Value
+      │
+      ▼
+ React Doesn't Know
+      │
+      ▼
+ Read Value using Ref
+```
+
+---
+
+## 💻 Example
+
+```jsx
+import { useRef } from "react";
+
+function App() {
+
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        ref={inputRef}
+      />
+
+      <button onClick={handleSubmit}>
+        Submit
+      </button>
+    </>
+  );
+}
+
+export default App;
+```
+
+---
+
+### Output
+
+User enters
+
+```
+John
+```
+
+Nothing happens while typing.
+
+After clicking **Submit**
+
+```
+Alert:
+John
+```
+
+React reads the value only when required.
+
+---
+
+## ✅ Advantages
+
+- Less code
+- Slightly better performance for large forms
+- Useful with third-party libraries
+- No state updates on every keystroke
+
+---
+
+## 🌍 Real-World Examples
+
+- File Upload
+- Legacy HTML Forms
+- Third-party UI Libraries
+- Simple Forms
+- Reading values only during form submission
+
+---
+# 💻 Code Comparison
+
+## Controlled Component
+
+```jsx
+const [email, setEmail] = useState("");
+
+<input
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+/>
+```
+
+Every key press updates the React state.
+
+---
+
+## Uncontrolled Component
+
+```jsx
+const emailRef = useRef();
+
+<input ref={emailRef} />
+```
+
+React reads the value only when needed.
+
+---
+# 🎯 When Should You Use Controlled Components?
+
+Use Controlled Components when you need:
+
+- Form Validation
+- Error Messages
+- Live Search
+- Live Preview
+- Dynamic Forms
+- Conditional Rendering
+- Multi-step Forms
+- API Integration
+
+### Example
+
+Password Strength Checker
+
+```
+Password:
+abc123
+
+Strength:
+Weak
+```
+
+The UI updates instantly as the user types.
+
+---
+
+# 🎯 When Should You Use Uncontrolled Components?
+
+Use Uncontrolled Components when:
+
+- File Upload
+- Very Simple Forms
+- Third-party Libraries
+- Performance-sensitive forms
+- Reading input values only during submission
+
+### Example
+
+```jsx
+<input type="file" />
+```
+
+File inputs are naturally **Uncontrolled Components** because browsers do not allow JavaScript to set their value programmatically.
+
+---
+# 🌍 Real-World Interview Scenarios
+
+## Scenario 1
+
+### Interviewer
+
+> You are building a Login Page. Which approach would you use?
+
+### Answer
+
+**Controlled Components**
+
+### Why?
+
+- Email validation
+- Password validation
+- Disable Login button
+- Show validation messages
+- Easy API integration
+
+---
+
+## Scenario 2
+
+### Interviewer
+
+> You are building a Resume Upload page. Which approach would you use?
+
+### Answer
+
+**Uncontrolled Components**
+
+### Why?
+
+- File inputs are naturally uncontrolled.
+- The selected file is only required when submitting the form.
+
+---
+
+
 ## ⭐ 2. Context API
 
 ### Interview Questions
