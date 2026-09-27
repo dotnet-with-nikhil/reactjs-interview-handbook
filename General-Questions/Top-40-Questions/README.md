@@ -4537,3 +4537,387 @@ return JSX
 ```
 
 > **Note:** Functional components with Hooks are the common approach for modern React development.
+---
+## ⭐ 39. React Component Lifecycle
+
+## What is React Component Lifecycle?
+
+**React Component Lifecycle** means the different stages a component goes through from **creation to removal**.
+
+Think of a React component like a person:
+
+```text
+Component Created
+       ↓
+    MOUNTING
+       ↓
+    UPDATING
+       ↓
+   UNMOUNTING
+       ↓
+Component Removed
+```
+
+React components mainly go through **three stages**:
+
+1. Mounting
+2. Updating
+3. Unmounting
+
+---
+
+# 1. Mounting
+
+### What is Mounting?
+
+**Mounting** means the component is **created and displayed on the screen** for the first time.
+
+For example:
+
+```jsx
+function User() {
+    return <h2>Hello User</h2>;
+}
+```
+
+When `<User />` appears on the screen, the component is **mounted**.
+
+### Common use cases
+
+Mounting is commonly used for:
+
+* Calling an API
+* Loading initial data
+* Setting up subscriptions
+* Initializing external resources
+
+### Functional Component Example
+
+```jsx
+useEffect(() => {
+    console.log("Component mounted");
+}, []);
+```
+
+The empty dependency array `[]` means the effect runs after the component is initially mounted.
+
+---
+
+# 2. Updating
+
+### What is Updating?
+
+**Updating** happens when a component's **state or props change**.
+
+When state or props change, React re-renders the component and updates the UI.
+
+### Example
+
+```jsx
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <>
+            <h2>{count}</h2>
+
+            <button onClick={() => setCount(count + 1)}>
+                Increment
+            </button>
+        </>
+    );
+}
+```
+
+When the user clicks the button:
+
+```text
+count changes
+     ↓
+Component re-renders
+     ↓
+Updated UI
+```
+
+This is called **updating**.
+
+### Example with `useEffect`
+
+```jsx
+useEffect(() => {
+    console.log("Count changed");
+}, [count]);
+```
+
+This effect runs when `count` changes.
+
+---
+
+# 3. Unmounting
+
+### What is Unmounting?
+
+**Unmounting** means the component is **removed from the screen**.
+
+For example:
+
+```text
+Login Page
+    ↓
+User logs in
+    ↓
+Login component removed
+    ↓
+Dashboard displayed
+```
+
+When the Login component is removed from the UI, it is **unmounted**.
+
+During unmounting, we often need to perform cleanup.
+
+### Example
+
+```jsx
+useEffect(() => {
+
+    console.log("Mounted");
+
+    return () => {
+        console.log("Unmounted");
+    };
+
+}, []);
+```
+
+The function returned from `useEffect()` is called the **cleanup function**.
+
+### Common cleanup tasks
+
+Cleanup can include:
+
+* Removing event listeners
+* Clearing timers
+* Cancelling subscriptions
+* Closing WebSocket connections
+* Aborting API requests when appropriate
+
+---
+
+# Complete Lifecycle
+
+The React component lifecycle can be remembered like this:
+
+```text
+              COMPONENT CREATED
+                     ↓
+                 MOUNTING
+                     ↓
+              Component appears
+                     ↓
+                 UPDATING
+                     ↓
+        State / Props are changed
+                     ↓
+              Component re-renders
+                     ↓
+                UNMOUNTING
+                     ↓
+              Component removed
+```
+
+---
+
+# Lifecycle in Functional Components
+
+In modern React, functional components use **Hooks** such as `useEffect()` to handle side effects and cleanup.
+
+| Lifecycle      | Simple Meaning                  | Functional React               |
+| -------------- | ------------------------------- | ------------------------------ |
+| **Mounting**   | Component appears on the screen | `useEffect(..., [])`           |
+| **Updating**   | State or props change           | `useEffect(..., [dependency])` |
+| **Unmounting** | Component is removed            | `useEffect` cleanup            |
+
+---
+
+# Real-World Example
+
+Suppose we have a **Product List** component.
+
+### Mounting
+
+When the Product List appears:
+
+```text
+Product List displayed
+        ↓
+Call API
+        ↓
+Get products
+        ↓
+Display products
+```
+
+Example:
+
+```jsx
+useEffect(() => {
+    fetchProducts();
+}, []);
+```
+
+---
+
+### Updating
+
+The user changes the product category:
+
+```text
+User selects "Mobile"
+        ↓
+Category changes
+        ↓
+Component updates
+        ↓
+Fetch/display mobile products
+```
+
+Example:
+
+```jsx
+useEffect(() => {
+    fetchProducts(category);
+}, [category]);
+```
+
+---
+
+### Unmounting
+
+The user leaves the Product List page:
+
+```text
+Product List
+     ↓
+User leaves page
+     ↓
+Component unmounted
+     ↓
+Cleanup resources
+```
+
+Example:
+
+```jsx
+useEffect(() => {
+
+    const timer = setInterval(() => {
+        console.log("Checking products...");
+    }, 5000);
+
+    return () => {
+        clearInterval(timer);
+    };
+
+}, []);
+```
+
+The cleanup function stops the timer when the component is unmounted.
+
+---
+
+# Easy Interview Explanation
+
+If an interviewer asks:
+
+**"What is the React component lifecycle?"**
+
+You can answer:
+
+> **React component lifecycle is the process a component goes through from the time it is created and displayed, through updates, until it is removed from the UI. The three main stages are Mounting, Updating, and Unmounting. In functional components, we commonly use `useEffect()` to handle side effects and cleanup during these stages.**
+
+---
+
+# Easy Way to Remember
+
+Remember just these three words:
+
+```text
+MOUNT
+  ↓
+UPDATE
+  ↓
+UNMOUNT
+```
+
+### MOUNT
+
+**Component appears**
+
+```text
+API Call
+Initial setup
+Load data
+```
+
+### UPDATE
+
+**Component changes**
+
+```text
+State changes
+Props change
+UI re-renders
+```
+
+### UNMOUNT
+
+**Component disappears**
+
+```text
+Cleanup
+Clear timer
+Remove subscription
+```
+
+---
+
+# Class Components vs Functional Components
+
+In older React code, lifecycle methods were commonly used in class components:
+
+```jsx
+componentDidMount()
+componentDidUpdate()
+componentWillUnmount()
+```
+
+In functional components, `useEffect()` and its cleanup function handle many of the same side-effect use cases:
+
+```jsx
+useEffect(() => {
+
+    // Side effect
+
+    return () => {
+        // Cleanup
+    };
+
+}, []);
+```
+
+> **Important:** `useEffect()` is not a direct one-to-one replacement for every class lifecycle method. It is primarily used to synchronize a component with external systems and to perform side effects and cleanup.
+
+---
+
+# Quick Summary
+
+| Stage          | What Happens                       | Example               |
+| -------------- | ---------------------------------- | --------------------- |
+| **Mounting**   | Component is created and displayed | Initial API call      |
+| **Updating**   | State or props change              | User changes category |
+| **Unmounting** | Component is removed               | User leaves the page  |
+
+## Final Definition
+
+> **React Component Lifecycle is the sequence of stages a React component goes through during its lifetime: Mounting, Updating, and Unmounting.**
+
