@@ -4390,3 +4390,150 @@ A strong interview answer is:
 - What causes component re-render?
 
 ---
+## ⭐ 38. React Class Component vs Functional Component
+
+### 1. Class Component
+
+### Definition
+
+A **Class Component** is a React component created using a JavaScript `class`.
+
+It extends `React.Component` and uses the `render()` method to return the UI.
+
+Class components traditionally use:
+
+* `this.state` — to store state
+* `this.setState()` — to update state
+* Lifecycle methods such as `componentDidMount()` and `componentWillUnmount()`
+
+### Example
+
+```jsx
+import React from "react";
+
+class Counter extends React.Component {
+    state = {
+        count: 0
+    };
+
+    render() {
+        return (
+            <button
+                onClick={() =>
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                }
+            >
+                Count: {this.state.count}
+            </button>
+        );
+    }
+}
+
+export default Counter;
+```
+
+### How it works
+
+```text
+this.state
+    ↓
+count = 0
+    ↓
+Button clicked
+    ↓
+this.setState()
+    ↓
+Component re-renders
+    ↓
+Updated count displayed
+```
+
+---
+
+## 2. Functional Component
+
+### Definition
+
+A **Functional Component** is a JavaScript function that returns JSX to describe the UI.
+
+Functional components use **Hooks**, such as `useState()` and `useEffect()`, to manage state and side effects.
+
+### Example
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <button onClick={() => setCount(count + 1)}>
+            Count: {count}
+        </button>
+    );
+}
+
+export default Counter;
+```
+
+### How it works
+
+```text
+useState(0)
+    ↓
+count = 0
+    ↓
+Button clicked
+    ↓
+setCount()
+    ↓
+Component re-renders
+    ↓
+Updated count displayed
+```
+
+---
+
+## 3. Key Difference
+
+| Class Component        | Functional Component                |
+| ---------------------- | ----------------------------------- |
+| Uses `class`           | Uses `function`                     |
+| Uses `this.state`      | Uses `useState()`                   |
+| Uses `this.setState()` | Uses state setter like `setCount()` |
+| Uses `this`            | No `this`                           |
+| Uses `render()`        | Directly returns JSX                |
+| Uses lifecycle methods | Uses Hooks such as `useEffect()`    |
+| More boilerplate       | Less code                           |
+
+---
+
+## 4. Easy Way to Remember
+
+### Class Component
+
+```text
+Class
+  ↓
+this.state
+  ↓
+this.setState()
+  ↓
+render()
+```
+
+### Functional Component
+
+```text
+Function
+  ↓
+useState()
+  ↓
+setCount()
+  ↓
+return JSX
+```
+
+> **Note:** Functional components with Hooks are the common approach for modern React development.
